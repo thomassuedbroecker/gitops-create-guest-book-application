@@ -132,4 +132,14 @@ spec:
     - CreateNamespace=true
 ```
 
+### Step 5: Verify the updated application
 
+Now you can see the application will be deployed.
+
+* The guestbook application
+
+[](images/gitops-argocd-config-09.png)
+
+* The guestbook application
+
+[](images/gitops-argocd-config-10.png)
