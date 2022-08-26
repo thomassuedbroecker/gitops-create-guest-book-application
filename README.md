@@ -176,3 +176,7 @@ spec:
     syncOptions:
     - CreateNamespace=true
 ```
+
+Here you see the resulting "app-of-apps"
+
+![](images/gitops-argocd-config-11.png)
