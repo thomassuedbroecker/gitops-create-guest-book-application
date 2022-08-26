@@ -4,7 +4,7 @@ The objective is to show how to deploy a guestbook application to an existing bo
 
 ## Pre-requisites
 
-Please follow the [Lab 3 of Software Everywhere Operate Getting started](https://operate.cloudnativetoolkit.dev/getting-started/lab3/) to setup an OpenShift Cluster preconfigure with Argo CD and a `Software Everywhere` bootstrap configuration for Argo CD.
+Please follow the [Lab 3 of Software Everywhere Operate Getting started](https://operate.cloudnativetoolkit.dev/getting-started/lab3/) to setup an OpenShift Cluster preconfigured with Argo CD and a `Software Everywhere` gitops bootstrap configuration for Argo CD.
 
 ## Bootstrap configuration
 
