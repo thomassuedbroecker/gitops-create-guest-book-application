@@ -8,7 +8,7 @@ Please follow the [Lab 3 of Software Everywhere Operate Getting started](https:/
 
 ## Bootstrap configuration
 
-The bootstrap configuration that was created from the [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops) module and has following structure in Argo CD. That structure is also refected in the related github project.
+The bootstrap configuration that was created by the [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops) module and has following structure realized in Argo CD. That structure is also refected in the related github project.
 
 ![](https://github.com/cloud-native-toolkit/terraform-tools-gitops/blob/main/template/docs/gitops-structure-overview.png)
 
