@@ -136,16 +136,6 @@ spec:
 
 Now you can see the application will be deployed.
 
-* The guestbook application
-
-
-[](images/gitops-argocd-config-09.png)
-
-* The guestbook application detail
-
-
-[](images/gitops-argocd-config-10.png)
-
 ### Step 6 (Optional) : Add an additional Argo CD 
 
 ```yaml
