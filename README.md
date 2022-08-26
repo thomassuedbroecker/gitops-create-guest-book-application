@@ -16,7 +16,7 @@ The diagram is provided by the terraform-tools-gitops]
 
 ## Create a new application
 
-To create a new application we will save a new `Argo CD application configuration` in the `2-Application` folder in your created bootstrap repository.
+To create a new application we will save a new `Argo CD application configuration` in the `3-Application` folder in your created bootstrap repository.
 
 * Configuration in Argo CD
 
@@ -54,16 +54,20 @@ kind: Application
 metadata:
   name: guestbook
   namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
-  project: 3-applications
+  project: 3-application
   source:
     helm:
       parameters:
         - name: replicaCount
           value: "2"
+      valueFiles:
+      - values.yaml
     repoURL: https://github.com/argoproj/argocd-example-apps
     path: helm-guestbook
     targetRevision: master
@@ -75,7 +79,7 @@ spec:
     - CreateNamespace=true
 ```
 
-### Step 3: Verify the configuration
+### Step 3: Verify the Application configuration
 
 In Argo CD we will notice that the application configuration will be deployed, but the guestbook application can't be deployed.
 
@@ -87,6 +91,45 @@ In Argo CD we will notice that the application configuration will be deployed, b
 
 [](images/gitops-argocd-config-07.png)
 
-3. When we click on the guestbook application, we the that the related Argo CD 3-Application does not allow to access the repository a look in the configuration 
+3. When we click on the guestbook application, we the that the related Argo CD `3-Application` does not allow to access the repository.
+
+[](images/gitops-argocd-config-06.png)
+
+### Step 4: Update the Application configuration
+
+Now we will change the related project configuration to default, which does allow also to access other repositories. This is the value we change: `spec.project: 3-applications` to `spec.project: default` and save the updated file.
+
+Or just copy the code to your `guestbook.yaml`.
+
+```sh
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: replicaCount
+          value: "2"
+      valueFiles:
+      - values.yaml
+    repoURL: https://github.com/argoproj/argocd-example-apps
+    path: helm-guestbook
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+```
 
 
