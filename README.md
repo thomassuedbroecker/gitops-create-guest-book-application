@@ -85,15 +85,15 @@ In Argo CD we will notice that the application configuration will be deployed, b
 
 1. The image below shows the deployed Argo CD configuration for the guestbook application.
 
-[](images/gitops-argocd-config-08.png)
+![](images/gitops-argocd-config-08.png)
 
 2. Here we see configuration app-of-apps configuration starting from the 3-Application configuration in Argo CD.
 
-[](images/gitops-argocd-config-07.png)
+![](images/gitops-argocd-config-07.png)
 
 3. When we click on the guestbook application, we the that the related Argo CD `3-Application` does not allow to access the repository.
 
-[](images/gitops-argocd-config-06.png)
+![](images/gitops-argocd-config-06.png)
 
 ### Step 4: Update the Application configuration
 
