@@ -144,7 +144,7 @@ Now you can see the application will be deployed.
 
 ![](images/gitops-argocd-config-10.png)
 
-### Step 6 (Optional) : Add an additional Argo CD 
+### Step 6 (Optional): Add an additional Argo CD 
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
