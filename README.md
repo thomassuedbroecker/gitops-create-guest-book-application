@@ -140,6 +140,39 @@ Now you can see the application will be deployed.
 
 [](images/gitops-argocd-config-09.png)
 
-* The guestbook application
+* The guestbook application detail
 
 [](images/gitops-argocd-config-10.png)
+
+### Step 6 (Optional) : Add an additional Argo CD 
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helloworld
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: replicaCount
+          value: "2"
+      valueFiles:
+      - values.yaml
+    repoURL: https://github.com/open-toolchain/hello-helm
+    path: chart/hello
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+```
